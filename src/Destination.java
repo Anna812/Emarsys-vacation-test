@@ -16,8 +16,10 @@ public class Destination {
         this.name = name;
     }
 
-    public String route() {
-        if(previousDestination == null) {
+    public String route() throws Exception{
+        if(name == null) {
+            throw new Exception();
+        } else if(previousDestination == null) {
             return name;
         } else {
             return previousDestination.route();
