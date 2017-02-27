@@ -13,7 +13,7 @@ public class App {
 
         for (Destination temp : destinations) {
             if(temp.getPreviousDestination() != null) {
-                route.add(temp.route());
+                temp.getRoot(route);
             }
             route.add(temp.getName());
         }
