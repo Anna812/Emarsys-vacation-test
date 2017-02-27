@@ -53,6 +53,16 @@ public class AppTest {
     }
 
     @Test
+    public void testCreateRouteWithDependencySecondTrial() throws Exception {
+        Destination x = new Destination("x");
+        Destination z = new Destination("z");
+        Destination y = new Destination("y", z);
+        ArrayList<Destination> destinations = new ArrayList<>(Arrays.asList(z, y, x));
+        ArrayList<String> expected = new ArrayList<>(Arrays.asList("z", "y", "x"));
+        assertEquals(expected, App.createRoute(destinations));
+    }
+
+    @Test
     public void testCreateRouteWithTwoDependencies() throws Exception {
         Destination x = new Destination("x");
         Destination z = new Destination("z", x);
