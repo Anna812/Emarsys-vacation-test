@@ -13,8 +13,9 @@ public class DestinationTest {
         assertEquals("x", x.route());
     }
 
-    @Test
+    @Test(expected = NullPointerException.class)
     public void testPrintRouteWithNullArg() throws Exception {
-        Destination y;
+        Destination y = null;
+        y.route();
     }
 }
