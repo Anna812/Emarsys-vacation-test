@@ -1,12 +1,10 @@
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 /**
  * Created by Anna on 17/02/27.
  */
 @AllArgsConstructor
-@NoArgsConstructor
 @Getter
 public class Destination {
     private String name;
@@ -16,9 +14,9 @@ public class Destination {
         this.name = name;
     }
 
-    public String route() throws Exception{
+    public String route() throws NullPointerException{
         if(name == null) {
-            throw new Exception();
+            throw new NullPointerException();
         } else if(previousDestination == null) {
             return name;
         } else {

@@ -19,7 +19,7 @@ public class DestinationTest {
         y.route();
     }
 
-    @Test(expected = Exception.class)
+    @Test(expected = NullPointerException.class)
     public void testRouteWithNullName() throws Exception {
         Destination z = new Destination(null);
         z.route();
