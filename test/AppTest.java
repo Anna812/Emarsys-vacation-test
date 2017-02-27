@@ -34,4 +34,11 @@ public class AppTest {
         ArrayList<String> expected = new ArrayList<>(Arrays.asList("x"));
         assertEquals(expected, App.createRoute(destinations));
     }
+
+    @Test(expected = NullPointerException.class)
+    public void testCreateRouteWithNullNameDestination() throws Exception {
+        Destination x = null;
+        ArrayList<Destination> destinations = new ArrayList<>(Arrays.asList(x));
+        App.createRoute(destinations);
+    }
 }
