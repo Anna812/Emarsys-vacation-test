@@ -10,6 +10,11 @@ public class DestinationTest {
     @Test
     public void testPrintRouteWithOneDestination() throws Exception {
         Destination x = new Destination("x");
-        assertEquals("x", x.getName());
+        assertEquals("x", x.route());
+    }
+
+    @Test
+    public void testPrintRouteWithNullArg() throws Exception {
+        Destination y;
     }
 }
