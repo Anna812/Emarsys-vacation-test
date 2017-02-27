@@ -45,11 +45,10 @@ public class AppTest {
     @Test
     public void testCreateRouteWithDependency() throws Exception {
         Destination x = new Destination("x");
-        Destination y = new Destination("y");
-        Destination z = new Destination("z", y);
-        ArrayList<Destination> destinations = new ArrayList<>(Arrays.asList(x, z, y));
-        ArrayList<String> expected = new ArrayList<>(Arrays.asList("x", "y", "z"));
+        Destination z = new Destination("z");
+        Destination y = new Destination("y", z);
+        ArrayList<Destination> destinations = new ArrayList<>(Arrays.asList(x, y, z));
+        ArrayList<String> expected = new ArrayList<>(Arrays.asList("x", "z", "y"));
         assertEquals(expected, App.createRoute(destinations));
-
     }
 }
