@@ -9,24 +9,24 @@ public class App {
     }
 
     public static ArrayList<String> createRoute(ArrayList<Destination> destinations) throws Exception {
-        ArrayList<String> route = new ArrayList<>();
+        ArrayList<String> routeWithDuplicates = new ArrayList<>();
 
         for (Destination temp : destinations) {
             if(temp.getPreviousDestination() != null) {
-                temp.getRoot(route);
+                temp.getRoot(routeWithDuplicates);
             }
-            route.add(temp.getName());
+            routeWithDuplicates.add(temp.getName());
         }
-        return deleteDuplicates(route);
+        return deleteDuplicates(routeWithDuplicates);
     }
 
-    public static ArrayList<String> deleteDuplicates(ArrayList<String> destinations) {
-        ArrayList<String> result = new ArrayList<>();
-        for (String temp : destinations) {
-            if(!result.contains(temp)) {
-                result.add(temp);
+    public static ArrayList<String> deleteDuplicates(ArrayList<String> routeWithDuplicates) {
+        ArrayList<String> optimalRoute = new ArrayList<>();
+        for (String temp : routeWithDuplicates) {
+            if(!optimalRoute.contains(temp)) {
+                optimalRoute.add(temp);
             }
         }
-        return result;
+        return optimalRoute;
     }
 }

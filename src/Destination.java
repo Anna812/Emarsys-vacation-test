@@ -28,14 +28,14 @@ public class Destination {
         }
     }
 
-    public void getRoot(ArrayList<String> route) throws NullPointerException{
+    public void getRoot(ArrayList<String> routeWithDuplicates) throws NullPointerException{
         if(name == null) {
             throw new NullPointerException();
         } else if(previousDestination == null) {
-            route.add(name);
+            routeWithDuplicates.add(name);
         } else {
-            previousDestination.getRoot(route);
-            route.add(previousDestination.getName());
+            previousDestination.getRoot(routeWithDuplicates);
+            routeWithDuplicates.add(previousDestination.getName());
         }
     }
 }
