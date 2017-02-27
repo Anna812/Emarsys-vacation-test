@@ -41,4 +41,15 @@ public class AppTest {
         ArrayList<Destination> destinations = new ArrayList<>(Arrays.asList(x));
         App.createRoute(destinations);
     }
+
+    @Test
+    public void testCreateRouteWithDependency() throws Exception {
+        Destination x = new Destination("x");
+        Destination y = new Destination("y");
+        Destination z = new Destination("z", y);
+        ArrayList<Destination> destinations = new ArrayList<>(Arrays.asList(x, z, y));
+        ArrayList<String> expected = new ArrayList<>(Arrays.asList("x", "y", "z"));
+        assertEquals(expected, App.createRoute(destinations));
+
+    }
 }
