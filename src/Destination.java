@@ -20,7 +20,8 @@ public class Destination {
         } else if(previousDestination == null) {
             return name;
         } else {
-            return previousDestination.route();
+            previousDestination.route();
+            return previousDestination.getName();
         }
     }
 }
