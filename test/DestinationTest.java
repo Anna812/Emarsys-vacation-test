@@ -18,4 +18,10 @@ public class DestinationTest {
         Destination y = null;
         y.route();
     }
+
+    @Test(expected = NullPointerException.class)
+    public void testPrintRouteWithNullName() throws Exception {
+        Destination z = new Destination(null);
+        z.route();
+    }
 }
