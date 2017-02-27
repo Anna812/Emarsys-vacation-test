@@ -14,10 +14,21 @@ public class App {
         for (Destination temp : destinations) {
             if(temp.getPreviousDestination() != null) {
                 route.add(temp.route());
+                route.add(temp.getName());
             } else {
                 route.add(temp.getName());
             }
         }
-        return route;
+        return deleteDuplicates(route);
+    }
+
+    public static ArrayList<String> deleteDuplicates(ArrayList<String> destinations) {
+        ArrayList<String> result = new ArrayList<>();
+        for (String temp : destinations) {
+            if(!result.contains(temp)) {
+                result.add(temp);
+            }
+        }
+        return result;
     }
 }
