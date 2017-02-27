@@ -1,6 +1,5 @@
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import sun.security.krb5.internal.crypto.Des;
 
 import java.util.ArrayList;
 
@@ -17,24 +16,23 @@ public class Destination {
         this.name = name;
     }
 
-    public String route() throws NullPointerException{
+    public String root() throws NullPointerException{
         if(name == null) {
             throw new NullPointerException();
-        } else if(previousDestination == null) {
+        } if(previousDestination == null) {
             return name;
         } else {
-            previousDestination.route();
-            return previousDestination.getName();
+            return previousDestination.root();
         }
     }
 
-    public void getRoot(ArrayList<String> routeWithDuplicates) throws NullPointerException{
+    public void getRoute(ArrayList<String> routeWithDuplicates) throws NullPointerException{
         if(name == null) {
             throw new NullPointerException();
         } else if(previousDestination == null) {
             routeWithDuplicates.add(name);
         } else {
-            previousDestination.getRoot(routeWithDuplicates);
+            previousDestination.getRoute(routeWithDuplicates);
             routeWithDuplicates.add(previousDestination.getName());
         }
     }
