@@ -82,4 +82,15 @@ public class AppTest {
         ArrayList<String> expected = new ArrayList<>(Arrays.asList("z", "w", "v", "y"));
         assertEquals(expected, App.createRoute(destinations));
     }
+
+    @Test
+    public void testCreateRouteWithOneLinearRouteSecondTrial() throws Exception {
+        Destination z = new Destination("z");
+        Destination w = new Destination("w", z);
+        Destination v = new Destination("v", w);
+        Destination y = new Destination("y", v);
+        ArrayList<Destination> destinations = new ArrayList<>(Arrays.asList(y, w, z, v));
+        ArrayList<String> expected = new ArrayList<>(Arrays.asList("z", "w", "v", "y"));
+        assertEquals(expected, App.createRoute(destinations));
+    }
 }
