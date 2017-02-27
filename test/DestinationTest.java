@@ -8,19 +8,19 @@ import static junit.framework.Assert.assertEquals;
 public class DestinationTest {
 
     @Test
-    public void testPrintRouteWithOneDestination() throws Exception {
+    public void testRouteWithOneDestination() throws Exception {
         Destination x = new Destination("x");
         assertEquals("x", x.route());
     }
 
     @Test(expected = NullPointerException.class)
-    public void testPrintRouteWithNullArg() throws Exception {
+    public void testRouteWithNullArg() throws Exception {
         Destination y = null;
         y.route();
     }
 
     @Test(expected = Exception.class)
-    public void testPrintRouteWithNullName() throws Exception {
+    public void testRouteWithNullName() throws Exception {
         Destination z = new Destination(null);
         z.route();
     }
