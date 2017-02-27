@@ -14,10 +14,8 @@ public class App {
         for (Destination temp : destinations) {
             if(temp.getPreviousDestination() != null) {
                 route.add(temp.route());
-                route.add(temp.getName());
-            } else {
-                route.add(temp.getName());
             }
+            route.add(temp.getName());
         }
         return deleteDuplicates(route);
     }
