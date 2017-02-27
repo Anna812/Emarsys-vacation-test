@@ -8,25 +8,25 @@ import static junit.framework.Assert.assertEquals;
 public class DestinationTest {
 
     @Test
-    public void testRouteWithOneDestination() throws Exception {
+    public void testRootWithOneDestination() throws Exception {
         Destination x = new Destination("x");
         assertEquals("x", x.root());
     }
 
     @Test(expected = NullPointerException.class)
-    public void testRouteWithNullArg() throws Exception {
+    public void testRooteWithNullArg() throws Exception {
         Destination y = null;
         y.root();
     }
 
     @Test(expected = NullPointerException.class)
-    public void testRouteWithNullName() throws Exception {
+    public void testRootWithNullName() throws Exception {
         Destination z = new Destination(null);
         z.root();
     }
 
     @Test
-    public void testRouteWithDependency() throws Exception {
+    public void testRootWithDependency() throws Exception {
         Destination x = new Destination("x");
         Destination z = new Destination("z", x);
         Destination y = new Destination("y", z);
