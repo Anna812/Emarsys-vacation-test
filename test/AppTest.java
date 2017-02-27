@@ -26,4 +26,12 @@ public class AppTest {
     public void testCreateRouteWithNullArg() throws Exception {
         App.createRoute(null);
     }
+
+    @Test
+    public void testCreateRouteWithOneArg() throws Exception {
+        Destination x = new Destination("x");
+        ArrayList<Destination> destinations = new ArrayList<>(Arrays.asList(x));
+        ArrayList<String> expected = new ArrayList<>(Arrays.asList("x"));
+        assertEquals(expected, App.createRoute(destinations));
+    }
 }
